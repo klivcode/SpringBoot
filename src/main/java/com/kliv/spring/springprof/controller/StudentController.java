@@ -12,9 +12,8 @@ import java.util.List;
     @RequestMapping("/student")
 public class StudentController {
         List<StudentDto> students= new ArrayList<>();
-
         @PostMapping
-    public ResponseEntity<ApiResponse> addStudent(@RequestBody StudentDto studentDto){
+        public ResponseEntity<ApiResponse> addStudent(@RequestBody StudentDto studentDto){
                 ApiResponse response = new ApiResponse();
             if(studentDto !=null){
                 students.add(studentDto);
@@ -28,5 +27,19 @@ public class StudentController {
             response.setSuccess(Boolean.FALSE);
             return ResponseEntity.ok(response);
 
-    }
+        }
+
+
+        @GetMapping("/firstName/{firstName}/lastName/{lastName}")
+    public ResponseEntity<ApiResponse> findStudentByFirstName(@PathVariable("firstName") String firstName,
+                                                              @PathVariable("lastName") String lastName
+                                                              )
+        {
+            ApiResponse response = new ApiResponse();
+            response.setData(null);
+            response.setMessage("Successfully Find Student by First Name");
+            response.setSuccess(Boolean.TRUE);
+            return ResponseEntity.ok(response);
+
+        }
 }
