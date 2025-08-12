@@ -2,6 +2,7 @@ package com.kliv.spring.springprof.dto;
 
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -12,5 +13,6 @@ public class StudentDto {
     private String middleName;
     private String lastName;
     private AddressDto address;
+    private MultipartFile pdf;
 
 }
