@@ -49,7 +49,7 @@ public class StudentController {
 
 
     @PostMapping("/doc")
-    public ResponseEntity<ApiResponse>doc(@RequestBody StudentDto studentDto){
+    public ResponseEntity<ApiResponse>doc(@ModelAttribute StudentDto studentDto){
         ApiResponse response = new ApiResponse();
         if(studentDto !=null){
             students.add(studentDto);
